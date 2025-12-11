@@ -1,0 +1,11 @@
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\obj\Debug\net8.0\Fleet.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\obj\Debug\net8.0\Fleet.Domain.AssemblyInfoInputs.cache
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\obj\Debug\net8.0\Fleet.Domain.AssemblyInfo.cs
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\obj\Debug\net8.0\Fleet.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\bin\Debug\net8.0\Fleet.Domain.deps.json
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\bin\Debug\net8.0\Fleet.Domain.dll
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\bin\Debug\net8.0\Fleet.Domain.pdb
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\obj\Debug\net8.0\Fleet.Domain.dll
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\obj\Debug\net8.0\refint\Fleet.Domain.dll
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\obj\Debug\net8.0\Fleet.Domain.pdb
+C:\Users\Nikhil\Downloads\FleetSignalRApp\src\Fleet.Domain\obj\Debug\net8.0\ref\Fleet.Domain.dll
