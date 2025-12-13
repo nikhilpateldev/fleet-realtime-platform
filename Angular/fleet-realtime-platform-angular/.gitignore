@@ -41,19 +41,3 @@ testem.log
 .DS_Store
 Thumbs.db
 .vs/
-
-# .NET
-**/bin/
-**/obj/
-.vs/
-
-# Visual Studio
-*.user
-*.suo
-*.cache
-*.log
-
-# Angular / Node
-node_modules/
-dist/
-.angular/

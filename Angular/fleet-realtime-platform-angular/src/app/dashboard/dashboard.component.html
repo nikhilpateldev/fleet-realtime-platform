@@ -1,0 +1,115 @@
+<div class="layout">
+
+  <header class="header">
+    <div>
+      <h1>Fleet Real-Time Operations Center</h1>
+      <p class="subtitle">Live data via ASP.NET Core SignalR</p>
+    </div>
+    <span class="live-pill">🟢 Live</span>
+  </header>
+
+  <section class="kpis">
+    <div class="kpi">
+      <span class="label">Vehicles Seen</span>
+      <span class="value">{{ stats.vehicles }}</span>
+    </div>
+    <div class="kpi">
+      <span class="label">Active Trips</span>
+      <span class="value">{{ stats.activeTrips }}</span>
+    </div>
+    <div class="kpi">
+      <span class="label">Drivers Online</span>
+      <span class="value">{{ stats.driversOnline }}</span>
+    </div>
+    <div class="kpi">
+      <span class="label">Alerts</span>
+      <span class="value">{{ stats.alerts }}</span>
+    </div>
+  </section>
+
+  <div class="grid">
+
+    <section class="card">
+      <h2>Live Vehicle Location</h2>
+      <ng-container *ngIf="vehicle$ | async as v; else noVehicle">
+        <p><strong>Vehicle:</strong> {{ v.vehicleId }}</p>
+        <p><strong>Lat:</strong> {{ v.latitude }} | <strong>Lng:</strong> {{ v.longitude }}</p>
+        <p><strong>Last Update:</strong> {{ v.timestamp | date:'short' }}</p>
+      </ng-container>
+      <ng-template #noVehicle>
+        <p class="placeholder">Waiting for first location update…</p>
+      </ng-template>
+    </section>
+
+    <section class="card">
+      <h2>Realtime Trip Timeline</h2>
+      <div class="timeline" *ngIf="tripTimeline$ | async as timeline; else noTimeline">
+        <div
+          class="timeline-item animate-in"
+          *ngFor="let t of timeline; let i = index"
+          [style.animationDelay.ms]="i * 80"
+        >
+          <div class="dot"></div>
+          <div class="content">
+            <div class="row">
+              <span class="trip-id">{{ t.tripId }}</span>
+              <span [ngClass]="getStatusClass(t.status)">
+                {{ getStatusLabel(t.status) }}
+              </span>
+            </div>
+            <div class="meta">
+              {{ t.timestamp | date:'shortTime' }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noTimeline>
+        <p class="placeholder">No trip events yet…</p>
+      </ng-template>
+    </section>
+
+    <section class="card card--heatmap">
+      <h2>Driver Availability Heatmap</h2>
+
+      <ng-container *ngIf="driverHeatmap$ | async as drivers; else noDrivers">
+        <div class="heatmap-grid">
+          <div
+            class="heat-cell"
+            *ngFor="let d of drivers"
+            [ngClass]="getHeatClass(d)"
+          >
+            <div class="id">{{ d.driverId | slice:0:6 }}</div>
+            <div class="status" [class.online]="d.isOnline">
+              {{ d.isOnline ? 'Online' : 'Offline' }}
+            </div>
+            <div class="count">
+              {{ d.updatesCount }} evt
+            </div>
+          </div>
+        </div>
+        <div class="heat-legend">
+          <span><span class="legend-box legend-low"></span> Low activity</span>
+          <span><span class="legend-box legend-med"></span> Medium</span>
+          <span><span class="legend-box legend-high"></span> High</span>
+        </div>
+      </ng-container>
+
+      <ng-template #noDrivers>
+        <p class="placeholder">Waiting for driver status updates…</p>
+      </ng-template>
+    </section>
+
+    <section class="card card--alert">
+      <h2>Alerts</h2>
+      <ng-container *ngIf="latestAlert$ | async as a; else noAlerts">
+        <p><strong>{{ a.type }}</strong></p>
+        <p>{{ a.message }}</p>
+        <p class="meta">at {{ a.createdAt | date:'short' }}</p>
+      </ng-container>
+      <ng-template #noAlerts>
+        <p class="placeholder">No alerts yet…</p>
+      </ng-template>
+    </section>
+
+  </div>
+</div>
