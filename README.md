@@ -11,7 +11,7 @@ Live vehicle tracking • Animated trip timelines • Driver availability heatma
 
 ## 🌐 Overview
 
-Fleet Realtime Platform is a **full stack, real time fleet monitoring system** designed to simulate modern logistics and transportation operations.  
+Fleet Realtime Platform is a full stack, real time fleet monitoring system** designed to simulate modern logistics and transportation operations.  
 It demonstrates how large scale systems stream live data using **SignalR over WebSockets** and visualize it using an **Angular 18 standalone dashboard**.
 
 This project is ideal for:
